@@ -1,0 +1,37 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="de.ryanjew.fashow">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.Main">
+
+        <activity android:name="de.ryanjew.fashow.ui.quote.ListActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="de.ryanjew.fashow.ui.quote.ArticleDetailActivity"
+            android:label=""
+            android:parentActivityName="de.ryanjew.fashow.ui.quote.ListActivity"/>
+
+        <activity android:name="de.ryanjew.fashow.ui.ViewLoginActivity"
+            android:label="Log In"
+            android:parentActivityName="de.ryanjew.fashow.ui.quote.ListActivity"/>
+
+        <activity android:name="de.ryanjew.fashow.ui.ViewRegisterActivity"
+            android:label="Register"
+            android:parentActivityName="de.ryanjew.fashow.ui.ViewLoginActivity"/>
+
+        <activity android:name="de.ryanjew.fashow.ui.SettingsActivity"
+            android:label="Settings"
+            android:parentActivityName="de.ryanjew.fashow.ui.quote.ListActivity"/>
+
+    </application>
+
+</manifest>
