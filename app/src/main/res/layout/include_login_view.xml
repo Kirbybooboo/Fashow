@@ -36,7 +36,7 @@
             android:layout_marginBottom="8dp">
 
             <EditText
-                android:id="@+id/sample_text_username"
+                android:id="@+id/login_username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/login_text_username" />
@@ -58,33 +58,29 @@
         </android.support.design.widget.TextInputLayout>
 
         <Button
+            android:id="@+id/login_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:clickable="true"
+            android:text="Log In"
+            android:textColor="@color/primary_text"
+            android:background="@color/theme_primary_light"
+            android:onClick="logInToAccount" />
+
+        <Button
             android:id="@+id/register_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:clickable="true"
+            style="?android:attr/borderlessButtonStyle"
             android:text="Register"
-            android:textColor="#FFFFFF"
-            android:background="@color/theme_primary_light"
+            android:textColor="@color/primary_text"
+            android:background="@color/theme_window_background"
             android:onClick="goToRegisterActivity" />
 
     </LinearLayout>
 
-    <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/login_fab"
-        android:layout_width="match_parent"
-        android:layout_height="128dp"
-        android:layout_alignParentBottom="true"
-        android:fitsSystemWindows="true">
-
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end|bottom"
-            android:layout_margin="@dimen/regular_offset"
-            android:src="@drawable/ic_done"/>
-
-    </android.support.design.widget.CoordinatorLayout>
 
 </RelativeLayout>

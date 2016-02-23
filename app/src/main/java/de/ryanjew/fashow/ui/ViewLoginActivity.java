@@ -8,9 +8,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.backendless.Backendless;
 import com.backendless.BackendlessUser;
+import com.backendless.UserService;
+import com.backendless.exceptions.BackendlessException;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -25,12 +28,24 @@ public class ViewLoginActivity extends BaseActivity {
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
         setupToolbar();
-        BackendlessUser user;
     }
 
-    @OnClick(R.id.fab)
-    public void onFabClicked(View view) {
-        Snackbar.make(view, "Hello Snackbar!", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+    public void logInToAccount(View view) {
+        BackendlessUser user;
+        EditText usernameText = (EditText)findViewById(R.id.login_username);
+        String username = usernameText.getText().toString().trim();
+        EditText passwordText = (EditText)findViewById(R.id.login_password);
+        String password = passwordText.getText().toString().trim();
+        try
+        {
+            user = Backendless.UserService.login( username, password, true);
+        }
+        catch( BackendlessException exception )
+        {
+            // login failed, to get the error code, call exception.getFault().getCode()
+        }
+
+        Snackbar.make(view, "Log in successful!", Snackbar.LENGTH_LONG).setAction("Action", null).show();
     }
 
     private void setupToolbar() {
